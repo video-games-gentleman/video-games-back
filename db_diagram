@@ -1,0 +1,62 @@
+Table user {
+  id int [pk]
+  name varchar
+  nickname varchar
+  password varchar
+  born_date datetime
+}
+
+
+Table video_games {
+  id int [pk]
+  name varchar
+  description varchar
+  classification varchar // 18
+  sale_price varchar
+  book_price varchar
+  release_date varchar
+  quantity int
+}
+
+Table genres {
+  id int [pk]
+  genre varchar
+}
+
+Table video_game_assets {
+  id int [pk]
+  type varchar
+  resource_url varchar
+  video_game_id int
+}
+
+Table comments {
+  id int [pk]
+  comments varchar
+  rate int // 1 - 5
+  user_id int
+  video_game_id int
+ 
+}
+
+Table client_orders {
+  id int [pk]
+  type varchar // buy or alquiler
+  status varchar // devuelta // prestada
+  order_date datetime
+  devolution_date datetime
+  user_id int
+  video_game_id int
+  
+}
+
+
+Ref: video_games.id <> genres.id
+Ref: comments.user_id > user.id
+Ref: comments.video_game_id > video_games.id
+Ref: video_game_assets.video_game_id > video_games.id
+Ref: client_orders.user_id > user.id
+Ref: client_orders.video_game_id > video_games.id
+
+
+https://dbdiagram.io/d
