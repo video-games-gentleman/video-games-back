@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { VideoGameController } from './components/video-game/video-game.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { VideoGameModule } from './components/video-game/video-game.module';
 
 @Module({
   imports: [
@@ -12,11 +12,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'ivis123',
       password: 'ivis123',
       database: 'video_games',
-      entities: [],
+      entities: [__dirname + '/../**/*.entity.js'],
       synchronize: true,
-    })
+    }),
+    VideoGameModule
   ],
-  controllers: [AppController, VideoGameController],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
