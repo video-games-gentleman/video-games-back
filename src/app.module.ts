@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { VideoGameModule } from './components/video-game/video-game.module';
+import { VideoGamesAssetsModule } from './components/video-games-assets/video-games-assets.module';
 
 @Module({
   imports: [
@@ -15,7 +16,8 @@ import { VideoGameModule } from './components/video-game/video-game.module';
       entities: [__dirname + '/../**/*.entity.js'],
       synchronize: true,
     }),
-    VideoGameModule
+    VideoGameModule,
+    VideoGamesAssetsModule
   ],
   controllers: [AppController],
   providers: [],
