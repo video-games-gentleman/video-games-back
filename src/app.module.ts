@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { VideoGameModule } from './components/video-game/video-game.module';
 import { VideoGamesAssetsModule } from './components/video-games-assets/video-games-assets.module';
+import { AuthModule } from './components/auth/auth.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { VideoGamesAssetsModule } from './components/video-games-assets/video-ga
       synchronize: true,
     }),
     VideoGameModule,
-    VideoGamesAssetsModule
+    VideoGamesAssetsModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [],
