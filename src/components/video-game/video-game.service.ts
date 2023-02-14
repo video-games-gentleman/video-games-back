@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { VideoGameAsset } from '../video-games-assets/video-games-assets.entity';
 import { VideoGame } from './video-games.entity';
 
 @Injectable()
@@ -9,8 +8,6 @@ export class VideoGameService {
   constructor(
     @InjectRepository(VideoGame)
     private videoGameRepository: Repository<VideoGame>,
-    @InjectRepository(VideoGameAsset)
-    private videoGameAssetRepository: Repository<VideoGameAsset>
   ) {}
 
   async findAll(): Promise<VideoGame[]> {
